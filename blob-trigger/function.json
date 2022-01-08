@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "blob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "microtema/{name}"
+    }
+  ],
+  "scriptFile": "../dist/blob-trigger/index.js"
+}

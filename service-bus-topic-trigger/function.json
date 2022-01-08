@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "microtema.process.definition.topic",
+      "subscriptionName": "microtema.subscription",
+    }
+  ],
+  "scriptFile": "../dist/service-bus-topic-trigger/index.js"
+}

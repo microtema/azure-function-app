@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "microtema.process.definition.queue",
+    }
+  ],
+  "scriptFile": "../dist/service-bus-trigger/index.js"
+}
