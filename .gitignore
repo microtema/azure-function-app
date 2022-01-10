@@ -10,6 +10,7 @@ Publish
 *.cscfg
 *.Cache
 project.lock.json
+.env
 
 /packages
 /TestResults
