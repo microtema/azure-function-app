@@ -32,6 +32,8 @@ const keyClientHandler = async ({vaultUri}: any) => {
     }
 
     await createCryptographyKey(client);
+
+    await purgeAllKeys(client);
 }
 
 const createCryptographyKey = async (client: KeyClient) => {
@@ -72,4 +74,14 @@ const createCryptographyKey = async (client: KeyClient) => {
     //Unwrap key
     const unwrapped = await cryptoClient.unwrapKey('RSA-OAEP', wrapped.result);
     console.log('unwrapped', unwrapped.result.toString());
+}
+
+const purgeAllKeys = async (client: KeyClient) => {
+
+    for await (const key of client.listPropertiesOfKeys()) {
+        const poller = await client.beginDeleteKey(key.name);
+        await poller.pollUntilDone();
+    }
+
+
 }
