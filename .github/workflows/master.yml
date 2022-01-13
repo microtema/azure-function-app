@@ -23,7 +23,7 @@ jobs:
   security-check:
     runs-on: ubuntu-latest
     steps:
-    - run: security-check
+    - run: echo security-check
   unit-test:
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
   acceptance-test:
     runs-on: ubuntu-latest
     steps:
-    - run: acceptance-test
+    - run: echo acceptance-test
   quality-date:
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +55,7 @@ jobs:
   readyness-check:
     runs-on: ubuntu-latest
     steps:
-    - run: readyness-check
+    - run: echo readyness-check
   regression-test:
     runs-on: ubuntu-latest
     steps:
@@ -67,4 +67,4 @@ jobs:
   load-performance-test:
     runs-on: ubuntu-latest
     steps:
-    - run: load-performance-test
+    - run: echo load-performance-test
