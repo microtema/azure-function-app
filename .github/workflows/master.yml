@@ -17,10 +17,14 @@ jobs:
     steps:
     - run: echo versioning
   compile:
+    needs:
+    - versioning
     runs-on: ubuntu-latest
     steps:
     - run: echo compile
   security-check:
+    needs:
+    - compile
     runs-on: ubuntu-latest
     steps:
     - run: echo security-check
