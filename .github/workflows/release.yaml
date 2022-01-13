@@ -1,0 +1,67 @@
+name: Release Ci Pipeline
+
+on:
+  push:
+    branches:
+      - release/*
+  pull_request:
+    branches:
+      - release/*
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo versioning
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo compile
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+    - run: security-check
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo unit-test
+  acceptance-test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: acceptance-test
+  quality-date:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo quality-gate
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  package:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo deployment
+  readyness-check:
+    runs-on: ubuntu-latest
+    steps:
+    - run: readyness-check
+  regression-test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo regression
+  system-test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo system-test
+  load-performance-test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: load-performance-test
