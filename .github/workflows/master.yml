@@ -59,6 +59,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo package
+  tagging:
+    needs:
+    - package
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo tagging
   promote:
     needs:
     - package
