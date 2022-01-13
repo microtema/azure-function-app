@@ -1,0 +1,9 @@
+name: Node.js CI/Deloy
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo deploy
