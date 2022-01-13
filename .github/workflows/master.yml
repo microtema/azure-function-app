@@ -91,7 +91,8 @@ jobs:
     - run: echo system-test
   load-performance-test:
     needs:
-    - readyness-check
+    - regression-test
+    - system-test
     runs-on: ubuntu-latest
     steps:
     - run: echo load-performance-test
