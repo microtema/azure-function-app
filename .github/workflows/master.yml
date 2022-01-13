@@ -77,22 +77,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo readyness-check
-  regression-test:
-    needs:
-    - readyness-check
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo regression
-  system-test:
-    needs:
-    - readyness-check
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo system-test
-  load-performance-test:
-    needs:
-    - regression-test
-    - system-test
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo load-performance-test
