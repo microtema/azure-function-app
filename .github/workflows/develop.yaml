@@ -10,8 +10,6 @@ on:
 
 jobs:
   compile:
-    needs:
-    - versioning
     runs-on: ubuntu-latest
     steps:
     - run: echo compile
