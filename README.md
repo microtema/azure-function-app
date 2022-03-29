@@ -25,3 +25,5 @@ func new --name json-converter --template "HTTP trigger" --authlevel "anonymous"
 #### Service Buss Queue Trigger
 
 #### Service Buss Topic Trigger
+
+### Trigger ci pipelines

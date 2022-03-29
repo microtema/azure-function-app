@@ -1,0 +1,85 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Master Ci Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo versioning
+  compile:
+    needs:
+    - versioning
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo compile
+  security-check:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo security-check
+  unit-test:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo unit-test
+  acceptance-test:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo acceptance-test
+  quality-gate:
+    needs:
+    - unit-test
+    - acceptance-test
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo quality-gate
+  build:
+    needs:
+    - quality-gate
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  package:
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  tagging:
+    needs:
+    - package
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo tagging
+  promote:
+    needs:
+    - tagging
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
+  deployment:
+    needs:
+    - promote
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo deployment
+  readyness-check:
+    needs:
+    - deployment
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo readyness-check

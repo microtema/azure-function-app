@@ -1,0 +1,52 @@
+name: Feature Ci Pipeline
+
+on:
+  push:
+    branches:
+      - feature/*
+  pull_request:
+    branches:
+      - feature/*
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo versioning
+  compile:
+    needs:
+    - versioning
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo compile
+  security-check:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo security-check
+  unit-test:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo unit-test
+  acceptance-test:
+    needs:
+    - compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo acceptance-test
+  quality-gate:
+    needs:
+    - unit-test
+    - acceptance-test
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo quality-gate
+  build:
+    needs:
+    - quality-gate
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo package
